@@ -1,0 +1,18 @@
+<header>
+  <div class="wrapper page-header">
+    <h1><%= link_to image_tag("logo.png", alt: "routine", class: "header-logo"), root_path %></h1>
+    <div class="search-box">
+      <input type="search" class="search-form">
+      <button type="submit" class="button">検索</button>
+    </div>
+    <nav>
+      <ul class="header-nav flex">
+        <li><%= link_to "探す", "" %></li>
+        <li><%= link_to "投稿", "" %></li>
+        <li><%= link_to "トレンド", "" %></li>
+        <li><%= link_to "新規登録", "", class: "button" %></li>
+        <li><%= link_to "ログイン", "", class: "button-border" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
