@@ -1,0 +1,111 @@
+<div class="description">
+  <div class="wrapper flex">
+    <div class="catch-copy">
+      <h1>ルーティーンを共有できるメディア系サイトです</h1>
+      <p>twitter風のミニブログ機能を使ってルーティンを共有しあうことができます。</p>
+    </div>
+    <div class="signup-form">
+      <%= form_with url: "", class: "basic-form" do |form| %>
+        <p>新規登録</p>
+        <%= form.label :name, "ユーザーネーム" %>
+        <%= form.text_field :name %>
+        
+        <%= form.label :email, "メールアドレス" %>
+        <%= form.email_field :email %>
+        
+        <%= form.label :password, "パスワード" %>
+        <%= form.password_field :password %>
+        
+        <%= form.submit "新規登録", class: "button-border" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper flex">
+  <div class="home-outer">
+    <h2>話題の投稿</h2>
+    <div class="articles">
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+      <div class="article">
+        <div class="user-info">
+          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+          <div class="article-meta">
+            <%= link_to "わたしです", "", class: "user-name" %>
+            <p>2分前</p>
+          </div>
+        </div>
+        <div class="article-content">
+          <%= link_to "わたしです", "" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sidemenu">
+    <ul>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+    </ul>
+  </div>
+</div>
