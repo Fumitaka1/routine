@@ -19,7 +19,6 @@ $orange: #ff7b24;
 
 a{
   text-decoration: none;
-  display: block;
 }
 
 li{
@@ -91,13 +90,26 @@ header{
   align-items: center;
 }
 
-.basic-form{
+.form-outer{
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-inner{
   border: solid $red 1px;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 400px;
   border-radius: 5px;
   background: white;
-  display: flex;
-  flex-direction: column;
+}
+
+.basic-form{
+  padding: 20px;
+  h2{
+    text-align: center;
+  }
   p{
     text-align: center;
     padding-bottom: 10px;
@@ -167,4 +179,10 @@ footer{
 
 .page-footer{
   padding: 20px 10px;
+}
+
+.user-data{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
