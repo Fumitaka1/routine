@@ -9,10 +9,12 @@
   </head>
 
   <body>
-    <div class="main">
       <%= render 'shared/header' %>
-      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class="main">
+        <%= yield %>
+      </div>
       <%= render 'shared/footer' %>
-    </div>
   </body>
 </html>

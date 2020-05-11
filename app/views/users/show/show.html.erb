@@ -1,6 +1,13 @@
 <div class="wrapper flex">
   <div class="home-outer">
-    <h2>話題の投稿</h2>
+    <div class="user-data">
+      <h1><%= @user.name %>のページ</h1>
+      <ul>
+        <li><%= link_to "アカウント変更", edit_user_registration_path, class: "button-border" %></li>
+      </ul>
+    </div>
+    
+    <h2>最近の投稿</h2>
     <div class="articles">
       <div class="article">
         <div class="user-info">

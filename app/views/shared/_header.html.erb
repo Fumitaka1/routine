@@ -10,8 +10,14 @@
         <li><%= link_to "探す", "" %></li>
         <li><%= link_to "投稿", "" %></li>
         <li><%= link_to "トレンド", "" %></li>
-        <li><%= link_to "新規登録", "", class: "button" %></li>
-        <li><%= link_to "ログイン", "", class: "button-border" %></li>
+        <% if user_signed_in? %>
+          
+          <li><%= link_to "#{current_user.name}", "/user/#{current_user.id}", class: "button" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "button" %></li>
+          <li><%= link_to "ログイン", new_user_session_path, class: "button-border" %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
