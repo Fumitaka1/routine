@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
   
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -6,7 +7,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     
   }
-    
-  get '/user/:id', to: 'users/show#show'
-  root 'static_pages#home'
+  
+  get '/user/:id', to: 'users/show#show', as: :user
+  
+  resources :posts
 end

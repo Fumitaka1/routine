@@ -1,0 +1,18 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.article{
+  padding: 15px;
+  border: solid 1px $red;
+}
+
+.article_menu{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 15px;
+  li{
+    padding-left: 20px;
+  }
+}// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

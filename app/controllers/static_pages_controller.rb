@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @user = User.new
+    @posts = Post.paginate(page: params[:page], per_page: 5)
   end
 end

@@ -1,0 +1,70 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.user-icon{
+  height: 50px;
+}
+
+.user_info{
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  .user_name{
+    padding-left: 10px;
+  }
+}
+
+.user_data{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-border{
+  border-radius: 3px;
+  border: $red solid 1px;
+  background: $red;
+  color: white;
+}
+
+.button{
+  border-radius: 3px;
+  background: $red;
+  color: white;
+}
+
+.form-outer{
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-inner{
+  border: solid $red 1px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background: white;
+}
+
+.basic_form{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  label{
+    padding: 0 0 10px 10px;
+  }
+  input{
+    margin-bottom: 20px;
+  }
+  text_area{
+    margin-bottom: 20px;
+  }
+}

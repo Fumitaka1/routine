@@ -2,78 +2,20 @@
   <div class="home-outer">
     <h2>話題の投稿</h2>
     <div class="articles">
-      <div class="article">
-        <div class="user-info">
+      <% @posts.each do |post| %>
+        <div class="article">
+        <div class="user_info">
           <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
         </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
+        <div class="article_data">
+          <h2 class="article_title"><%= post.title %></h2>
+        </div>
+        <div class="article_contents">
+          <%= post.contents %>
+          <%= post.user_id %>
         </div>
       </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
   <div class="sidemenu">
