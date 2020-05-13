@@ -1,0 +1,28 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+devise-form{
+  padding: 20px;
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  label{
+    padding: 0 0 10px 10px;
+  }
+  input{
+    margin-bottom: 20px;
+  }
+}
+
+.devise-form-inner{
+  border: solid $red 1px;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  border-radius: 5px;
+  background: white;
+}

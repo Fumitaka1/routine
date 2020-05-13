@@ -1,0 +1,21 @@
+<div class="wrapper flex">
+  <div class="home-outer">
+    <div class="article">
+      <div class="user_info">
+        <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+        <p class="user_name"><%= @posted_user.name %></p>
+      </div>
+      <div class="article_data">
+        <h2 class="article_title"><%= @post.title %></h2>
+      </div>
+      <div class="article_contents">
+        <%= @post.contents %>
+        <%= @post.user_id %>
+      </div>
+      <div class="article_menu">
+        <li><%= link_to "投稿を削除", "", method: :delete, class: "button" %></li>
+        <li><%= link_to "投稿を編集", edit_post_path(@post), class: "button" %></li>
+      </div>
+    </div>
+  </div>
+</div>

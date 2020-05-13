@@ -7,8 +7,8 @@
     </div>
     <nav>
       <ul class="header-nav flex">
-        <li><%= link_to "探す", "" %></li>
-        <li><%= link_to "投稿", "" %></li>
+        <li><%= link_to "探す", posts_path %></li>
+        <li><%= link_to "投稿", new_post_path %></li>
         <li><%= link_to "トレンド", "" %></li>
         <% if user_signed_in? %>
           

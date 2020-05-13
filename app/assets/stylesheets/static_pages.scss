@@ -1,0 +1,26 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.description{
+  padding: 40px;
+  border-bottom: solid 1px $red;
+}
+
+.home-outer{
+  order: 2;
+  width: 80%;
+  margin-top: 50px;
+}
+
+.sidemenu{
+  order: 1;
+  width: 20%;
+  margin-right: 40px;
+  li{
+    width: 100%;
+    border-bottom: solid 1px $red;
+    a{
+      display: block;
+    }
+  }
+}

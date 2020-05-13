@@ -1,0 +1,18 @@
+<div class="form-outer wrapper">
+  <div class="form-inner">
+    <div class="basic-form">
+      <h2>投稿編集</h2>
+      
+      <%= form_with model: @post do |f| %>
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title %>
+        
+        <%= f.label :contents, "内容" %>
+        <%= f.text_area :contents %>
+        
+        <%= f.file_field :image%>
+        <%= f.submit "編集", class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
