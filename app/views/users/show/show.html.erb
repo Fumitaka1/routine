@@ -6,82 +6,24 @@
         <li><%= link_to "アカウント変更", edit_user_registration_path, class: "button-border" %></li>
       </ul>
     </div>
-    
+
     <h2>最近の投稿</h2>
-    <div class="articles">
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
+    <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
+    <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post_info">
+        <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+        <div class="post_info_item">
+            <h2 class="post_title"><%= link_to post.title, post_path(post) %></h2>
+          <div class="post_info_nav">
+            <p class="user_name"><%= link_to post.user.name, user_path(post.user) %></p>
+            <p><%= post.updated_at.to_s(:datetime_jp) %>更新</p>
           </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
-        </div>
-      </div>
-      <div class="article">
-        <div class="user-info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="article-meta">
-            <%= link_to "わたしです", "", class: "user-name" %>
-            <p>2分前</p>
-          </div>
-        </div>
-        <div class="article-content">
-          <%= link_to "わたしです", "" %>
         </div>
       </div>
     </div>
+    <% end %>
+    <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
   </div>
   <div class="sidemenu">
     <ul>
