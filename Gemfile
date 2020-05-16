@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'carrierwave'
 gem 'will_paginate'
+gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
