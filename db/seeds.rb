@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # cording: UTF-8
-1000000.times do |no|
-  Post.create!(title: "test data no.#{no}", contents: "it`s test data haha!", user_id: 1)
-end
+# 1000000.times do |no|
+#   Post.create!(title: "test data no.#{no}", contents: "it`s test data haha!", user_id: 1)
+# end
