@@ -35,7 +35,6 @@ $orange: #ff7b24;
 
 .post_form_inner{
   width: 100%;
-
   display: flex;
 }
 
@@ -52,9 +51,6 @@ $orange: #ff7b24;
   input, textarea{
     box-shadow: inset 0 1px 2px #ccc;
     margin-bottom: 20px
-  }
-  textarea{
-    min-height: 50vh;
   }
   label{
     padding: 0 0 10px 10px;

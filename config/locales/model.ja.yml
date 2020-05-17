@@ -6,7 +6,7 @@ ja:
     attributes:
       post:
         title: タイトル
-        contents: 内容
+        content: 内容
       user:
         name: 名前
         email: メールアドレス
@@ -14,3 +14,5 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+      comment:
+        content: 内容

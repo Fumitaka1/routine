@@ -13,7 +13,7 @@ $orange: #ff7b24;
 }
 
 .post_info_item{
-  
+
 }
 
 .post_info_nav{
@@ -30,4 +30,8 @@ $orange: #ff7b24;
 
 .post_title, .post_contents{
   width: 100%;
+}
+
+.post_textarea{
+  min-height: 50vh;
 }

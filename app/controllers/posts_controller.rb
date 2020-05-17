@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to post_path(@post)
     else
@@ -23,14 +23,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posted_user = User.find(@post.user_id)
+    @comment = Comment.new(post_id: @post.id)
+    @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
   end
 
   def update
     if @post.update_attributes(post_params)
       redirect_to "/posts/#{@post.id}"
     else
-      render "/posts/#{params[:id]}/edit"
+      render 'edit'
     end
 
   end
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :contents, :image)
+      params.require(:post).permit(:title, :content, :image)
     end
 
     def set_designated_post

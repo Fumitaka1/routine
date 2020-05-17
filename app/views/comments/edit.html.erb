@@ -1,15 +1,10 @@
 <div class="form-outer wrapper">
   <div class="post_form_inner">
-    <%= form_with model: @post, class: "basic_form" do |f| %>
-      <h2>投稿編集</h2>
-
-        <%= f.label :title, "タイトル" %>
-        <%= f.text_field :title %>
+    <%= form_with model: @comment, class: "basic_form" do |f| %>
+      <h2>コメント編集</h2>
 
         <%= f.label :content, "内容" %>
         <%= f.text_area :content %>
-
-        <%= f.file_field :image%>
 
       <%= f.submit "投稿", class: "button" %>
     <% end %>
