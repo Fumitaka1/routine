@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # cording: UTF-8
-# 1000000.times do |no|
-#   Post.create!(title: "test data no.#{no}", contents: "it`s test data haha!", user_id: 1)
-# end
+100.times do |no|
+  User.create!(name: "test_user_no.#{no + 1}",
+               email: "testno#{no + 1}@example.com",
+               password: "a" * 8)
+end
+
+100.times do |no|
+  Post.create!(title: "test data no.#{no + 1}", content: "it`s test data haha!", user_id: 1)
+end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
