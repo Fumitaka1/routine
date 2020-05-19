@@ -1,0 +1,25 @@
+<div class="users_home">
+  <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+  <h1><%= @user.name %></h1>
+
+  <ul>
+    <li><%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user) %></li>
+    <li><%= link_to "フォロワー: #{@user.following.count}", following_user_path(@user) %></li>
+  </ul>
+
+  <% unless current_user == @user %>
+    <% if current_user.following?(@user) %>
+      <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),
+                   html: { method: :delete },
+                   remote: true) do |f| %>
+        <%= f.submit "フォローを取り消す", class: "button-border" %>
+      <% end %>
+    <% else %>
+      <%= form_with(model: current_user.active_relationships.build, remote: true) do |f| %>
+        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+        <%= f.submit "フォローする", class: "button" %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= link_to "アカウント変更", edit_user_registration_path, class: "button-border" %>
+</div>

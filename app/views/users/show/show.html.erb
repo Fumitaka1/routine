@@ -1,13 +1,5 @@
 <div class="wrapper flex">
   <div class="home-outer">
-    <div class="user-data">
-      <h1><%= @user.name %>のページ</h1>
-      <ul>
-        <li><%= link_to "アカウント変更", edit_user_registration_path, class: "button-border" %></li>
-      </ul>
-    </div>
-
-    <h2>最近の投稿</h2>
     <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
     <% @posts.each do |post| %>
     <div class="post">
@@ -26,12 +18,6 @@
     <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
   </div>
   <div class="sidemenu">
-    <ul>
-      <li><a>menu item</a></li>
-      <li><a>menu item</a></li>
-      <li><a>menu item</a></li>
-      <li><a>menu item</a></li>
-      <li><a>menu item</a></li>
-    </ul>
+    <%= render 'users_side' %>
   </div>
 </div>
