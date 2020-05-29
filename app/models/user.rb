@@ -2,7 +2,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :name, :email, :password, presence: true
+  validates :name, :email, uniqueness: true
+  validates :password, length: { in: 6..128 }
+  validates :email, length: { maximum: 250 }
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
@@ -24,6 +32,5 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-
 
 end
