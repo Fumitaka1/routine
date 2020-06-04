@@ -16,7 +16,7 @@
               <li><%= link_to "投稿を削除", "", method: :delete, class: "button" %></li>
               <li><%= link_to "投稿を編集", edit_post_path(@post), class: "button" %></li>
             <% else %>
-              <%= render 'bookmark_button' %>
+              <%= render 'posts/bookmark_button' %>
             <% end %>
           </ul>
         </div>

@@ -4,12 +4,13 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    current_user.bookmarks.create(post_id: params[:post_id])
-    redirect_to Post.find_by(params[:post_id])
+    post_id = params[:post_id]
+    current_user.bookmarks.create(post_id: post_id)
+    redirect_to Post.find(post_id)
   end
 
   def destroy
-    current_user.bookmarks.find_by(params[:id]).destroy
-    redirect_to Post.find_by(params[:id])
+    bookmark = Bookmark.find(params[:id]).destroy
+    redirect_to bookmark.post
   end
 end

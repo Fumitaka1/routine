@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    user
     post
+    user { post.user }
     content {"テストコメント"}
   end
 end
