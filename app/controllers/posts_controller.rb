@@ -19,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-
   end
 
   def show
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to posts_path if @post.destroy
+    redirect_to posts_path if @post.destroy!
   end
 
   private

@@ -3,17 +3,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
+    if @comment.save!
       redirect_to post_path(@comment.post)
     else
+      # 保存に失敗した@commentとともに該当する@postのレンダリングを行う
       @post = @comment.post
       @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
       render "posts/show"
     end
-  end
-
-  def new
-    @comment = Comment.new
   end
 
   def edit
@@ -22,11 +19,10 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes(comment_params)
-      redirect_to "/comments/#{@comment.id}"
+      redirect_to posts_path
     else
       render 'edit'
     end
-
   end
 
   def destroy
