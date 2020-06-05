@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_designated_comment, only: [:edit, :show, :update, :destroy]
+  before_action :set_designated_comment, only: %i[edit show update destroy]
 
   def create
     @comment = current_user.comments.build(comment_params)
@@ -9,13 +11,11 @@ class CommentsController < ApplicationController
       # 保存に失敗した@commentとともに該当する@postのレンダリングを行う
       @post = @comment.post
       @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
-      render "posts/show"
+      render 'posts/show'
     end
   end
 
-  def edit
-  end
-
+  def edit; end
 
   def update
     if @comment.update_attributes(comment_params)
@@ -31,11 +31,11 @@ class CommentsController < ApplicationController
 
   private
 
-    def comment_params
-      params.require(:comment).permit(:content, :post_id)
-    end
+  def comment_params
+    params.require(:comment).permit(:content, :post_id)
+  end
 
-    def set_designated_comment
-      @comment = Comment.find(params[:id])
-    end
+  def set_designated_comment
+    @comment = Comment.find(params[:id])
+  end
 end

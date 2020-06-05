@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
@@ -17,7 +19,7 @@ RSpec.describe Comment, type: :model do
         @comment.user = nil
         @comment.valid?
         @comment.inspect
-        expect(@comment.errors.details[:user][0][:error]).to  eq :blank
+        expect(@comment.errors.details[:user][0][:error]).to eq :blank
       end
     end
 
@@ -25,7 +27,7 @@ RSpec.describe Comment, type: :model do
       it 'invalid' do
         @comment.post = nil
         @comment.valid?
-        expect(@comment.errors.details[:post][0][:error]).to  eq :blank
+        expect(@comment.errors.details[:post][0][:error]).to eq :blank
       end
     end
 
@@ -33,15 +35,15 @@ RSpec.describe Comment, type: :model do
       it 'invalid' do
         @comment.content = nil
         @comment.valid?
-        expect(@comment.errors.details[:content][0][:error]).to  eq :blank
+        expect(@comment.errors.details[:content][0][:error]).to eq :blank
       end
     end
 
     context 'contentが" "場合' do
       it 'invalid' do
-        @comment.content = " "
+        @comment.content = ' '
         @comment.valid?
-        expect(@comment.errors.details[:content][0][:error]).to  eq :blank
+        expect(@comment.errors.details[:content][0][:error]).to eq :blank
       end
     end
   end
@@ -58,7 +60,7 @@ RSpec.describe Comment, type: :model do
       it 'valid' do
         @comment.content = 'a' * 401
         @comment.valid?
-        expect(@comment.errors.details[:content][0][:error]).to  eq :too_long
+        expect(@comment.errors.details[:content][0][:error]).to eq :too_long
       end
     end
   end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :set_designated_post, only: [:edit, :show, :update, :destroy]
+  before_action :set_designated_post, only: %i[edit show update destroy]
 
   def index
     @posts = Post.includes(:user).paginate(page: params[:page], per_page: 20)
@@ -18,8 +20,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def show
     @comment = Comment.new(post_id: @post.id)
@@ -32,7 +33,6 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   def destroy
@@ -41,11 +41,11 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, :content, :image)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content, :image)
+  end
 
-    def set_designated_post
-      @post = Post.find(params[:id])
-    end
+  def set_designated_post
+    @post = Post.find(params[:id])
+  end
 end

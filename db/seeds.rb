@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -9,11 +11,11 @@
 100.times do |no|
   User.create!(name: "test_user_no.#{no + 1}",
                email: "testno#{no + 1}@example.com",
-               password: "a" * 8)
+               password: 'a' * 8)
 end
 
 100.times do |no|
-  Post.create!(title: "test data no.#{no + 1}", content: "it`s test data haha!", user_id: 1)
+  Post.create!(title: "test data no.#{no + 1}", content: 'it`s test data haha!', user_id: 1)
 end
 
 users = User.all

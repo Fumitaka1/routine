@@ -1,17 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   let(:comment) { create(:comment) }
-  let(:comment_params) {
+  let(:comment_params) do
     { content: build(:comment).content, post_id: build(:comment).post.id }
-  }
+  end
   before { login_user create(:user) }
+
+  shared_example 'return 200 status code' do
+    it { expect(response.status).to eq(200) }
+  end
 
   describe 'GET #edit' do
     before { get :edit, params: { id: comment.id } }
-    it 'return 200 status code' do
-      expect(response.status).to eq(200)
-    end
+    it_behaves_like 'return 200 status code'
     it 'render :edit' do
       expect(response).to render_template :edit
     end
@@ -29,7 +33,7 @@ RSpec.describe CommentsController, type: :controller do
       expect(assigns(:comment)).to eq Comment.find(comment.id)
     end
     it 'redirect pasts/index' do
-      expect(response).to redirect_to "/posts"
+      expect(response).to redirect_to '/posts'
     end
   end
 
@@ -40,7 +44,7 @@ RSpec.describe CommentsController, type: :controller do
       expect(response.status).to eq(302)
     end
     it 'comment.conunt is decrease by 1' do
-      expect{ delete :destroy, params: { id: @commnet_id } }.to change{ Comment.count }.by(-1)
+      expect { delete :destroy, params: { id: @commnet_id } }.to change { Comment.count }.by(-1)
     end
   end
 
@@ -51,7 +55,7 @@ RSpec.describe CommentsController, type: :controller do
       expect(response.status).to eq(302)
     end
     it 'comment.conunt is increase by 1' do
-      expect{ create_comment }.to change{ Comment.count }.by(1)
+      expect { create_comment }.to change { Comment.count }.by(1)
     end
   end
 end

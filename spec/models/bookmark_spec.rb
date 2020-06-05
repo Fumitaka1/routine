@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
@@ -16,7 +18,7 @@ RSpec.describe Bookmark, type: :model do
       it 'blank' do
         @bookmark.user = nil
         @bookmark.valid?
-        expect(@bookmark.errors.details[:user][0][:error]).to  eq :blank
+        expect(@bookmark.errors.details[:user][0][:error]).to eq :blank
       end
     end
 
@@ -24,7 +26,7 @@ RSpec.describe Bookmark, type: :model do
       it 'blank' do
         @bookmark.post = nil
         @bookmark.valid?
-        expect(@bookmark.errors.details[:post][0][:error]).to  eq :blank
+        expect(@bookmark.errors.details[:post][0][:error]).to eq :blank
       end
     end
   end
@@ -33,14 +35,14 @@ RSpec.describe Bookmark, type: :model do
     context '関連付けられたuserが削除された場合' do
       it '削除される' do
         @bookmark.user.destroy
-        expect(Bookmark.all).not_to  include @bookmark
+        expect(Bookmark.all).not_to include @bookmark
       end
     end
 
     context '関連付けられたpostが削除された場合' do
       it '削除される' do
         @bookmark.post .destroy
-        expect(Bookmark.all).not_to  include @bookmark
+        expect(Bookmark.all).not_to include @bookmark
       end
     end
   end

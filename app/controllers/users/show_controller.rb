@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::ShowController < ApplicationController
   def show
     @user = User.find(params[:id])
@@ -5,14 +7,14 @@ class Users::ShowController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = 'Following'
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = 'Followers'
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
@@ -15,7 +17,7 @@ RSpec.describe CommentsController, type: :controller do
       expect(response.status).to eq(302)
     end
     it 'user.conunt is decrease by 1' do
-      expect{ delete :destroy, params: { id: @user_id } }.to change{ Relationship.count }.by(-1)
+      expect { delete :destroy, params: { id: @user_id } }.to change { Relationship.count }.by(-1)
     end
   end
 
@@ -26,7 +28,7 @@ RSpec.describe CommentsController, type: :controller do
       expect(response.status).to eq(302)
     end
     it 'user.conunt is increase by 1' do
-      expect{ create_relation }.to change{ Relationship.count }.by(1)
+      expect { create_relation }.to change { Relationship.count }.by(1)
     end
   end
 end

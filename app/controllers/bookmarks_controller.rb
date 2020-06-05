@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookmarksController < ApplicationController
   def index
     @bookmarks = current_user.bookmarks.paginate(page: params[:page], per_page: 20)
