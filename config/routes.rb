@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'static_pages#home'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations',
+    registrations: 'users/registrations'
 
   }
 
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :comments
-  resources :relationships,       only: [:create, :destroy]
-  resources :bookmarks,       only: [:create, :destroy, :index]
+  resources :relationships, only: %i[create destroy]
+  resources :bookmarks, only: %i[create destroy index]
 end

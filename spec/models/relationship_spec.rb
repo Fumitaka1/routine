@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
@@ -15,7 +17,7 @@ RSpec.describe Relationship, type: :model do
       it 'blank' do
         @relationship.follower_id = nil
         @relationship.valid?
-        expect(@relationship.errors.details[:follower_id][0][:error]).to  eq :blank
+        expect(@relationship.errors.details[:follower_id][0][:error]).to eq :blank
       end
     end
 
@@ -23,7 +25,7 @@ RSpec.describe Relationship, type: :model do
       it 'blank' do
         @relationship.followed_id = nil
         @relationship.valid?
-        expect(@relationship.errors.details[:followed_id][0][:error]).to  eq :blank
+        expect(@relationship.errors.details[:followed_id][0][:error]).to eq :blank
       end
     end
   end
@@ -32,14 +34,14 @@ RSpec.describe Relationship, type: :model do
     context '関連付けられたfollowerが削除された場合' do
       it '削除される' do
         @relationship.follower.destroy
-        expect(Relationship.all).not_to  include @relationship
+        expect(Relationship.all).not_to include @relationship
       end
     end
 
     context '関連付けられたfollowedが削除された場合' do
       it '削除される' do
         @relationship.followed.destroy
-        expect(Relationship.all).not_to  include @relationship
+        expect(Relationship.all).not_to include @relationship
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
@@ -34,13 +36,13 @@ RSpec.describe Post, type: :model do
 
     context 'コンテンツが40,000文字の場合' do
       it '投稿できる' do
-        expect(FactoryBot.build(:post, content: 'a' * 40000)).to be_valid
+        expect(FactoryBot.build(:post, content: 'a' * 40_000)).to be_valid
       end
     end
 
     context 'コンテンツが40,001文字の場合' do
       it '投稿できない' do
-        expect(FactoryBot.build(:post, content: 'a' * 40001)).to be_invalid
+        expect(FactoryBot.build(:post, content: 'a' * 40_001)).to be_invalid
       end
     end
   end

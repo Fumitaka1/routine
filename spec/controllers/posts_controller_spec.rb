@@ -1,16 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let(:post_obj) { create(:post) }
   let(:user) { create(:user) }
   let(:post_params) { attributes_for(:post) }
+
+  shared_example 'return 200 status code' do
+    it { expect(response.status).to eq(200) }
+  end
+
   describe 'GET #index' do
     before do
       get :index
     end
-    it 'return 200 status code' do
-      expect(response.status).to eq(200)
-    end
+    it_behaves_like 'return 200 status code'
     it 'render :index' do
       expect(response).to render_template :index
     end
@@ -32,7 +37,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to post_path Post.last.id
     end
     it 'post.conunt is increase by 1' do
-      expect{ create_post }.to change{Post.count}.by(1)
+      expect { create_post }.to change { Post.count }.by(1)
     end
   end
 
@@ -41,9 +46,7 @@ RSpec.describe PostsController, type: :controller do
       login_user user
       get :new
     end
-    it 'return 200 status code' do
-      expect(response.status).to eq(200)
-    end
+    it_behaves_like 'return 200 status code'
     it 'render :new' do
       expect(response).to render_template :new
     end
@@ -57,9 +60,7 @@ RSpec.describe PostsController, type: :controller do
       login_user user
       get :edit, params: { id: post_obj.id }
     end
-    it 'return 200 status code' do
-      expect(response.status).to eq(200)
-    end
+    it_behaves_like 'return 200 status code'
     it 'render :edit' do
       expect(response).to render_template :edit
     end
@@ -70,9 +71,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET #show' do
     before { get :show, params: { id: post_obj.id } }
-    it 'return 200 status code' do
-      expect(response.status).to eq(200)
-    end
+    it_behaves_like 'return 200 status code'
     it 'render :show' do
       expect(response).to render_template :show
     end
@@ -108,10 +107,10 @@ RSpec.describe PostsController, type: :controller do
     end
     it 'redirect pasts/index' do
       delete :destroy, params: { id: @post_id }
-      expect(response).to redirect_to "/posts"
+      expect(response).to redirect_to '/posts'
     end
     it 'post.conunt is decrease by 1' do
-      expect{ delete :destroy, params: { id: @post_id } }.to change{Post.count}.by(-1)
+      expect { delete :destroy, params: { id: @post_id } }.to change { Post.count }.by(-1)
     end
   end
 end

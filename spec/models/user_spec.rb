@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -14,7 +16,7 @@ RSpec.describe User, type: :model do
     describe 'presence' do
       context 'nameが無い場合' do
         it '登録できない' do
-          @user.name = ""
+          @user.name = ''
           @user.valid?
           expect(@user.errors.details[:name][0][:error]).to eq :blank
         end
@@ -22,7 +24,7 @@ RSpec.describe User, type: :model do
 
       context 'emailが無い場合' do
         it '登録できない' do
-          @user.email = ""
+          @user.email = ''
           @user.valid?
           expect(@user.errors.details[:email][0][:error]).to eq :blank
         end
@@ -30,7 +32,7 @@ RSpec.describe User, type: :model do
 
       context 'passwordが無い場合' do
         it '登録できない' do
-          @user.password = ""
+          @user.password = ''
           @user.valid?
           expect(@user.errors.details[:password][0][:error]).to eq :blank
         end
@@ -42,8 +44,8 @@ RSpec.describe User, type: :model do
         it '登録できない' do
           @user.save
           duplicate_user = User.new(name: @user.name,
-                                      email: 'unique@email.com',
-                                      password: 'password')
+                                    email: 'unique@email.com',
+                                    password: 'password')
           duplicate_user.valid?
           expect(duplicate_user.errors.details[:name][0][:error]).to eq :taken
         end
@@ -53,8 +55,8 @@ RSpec.describe User, type: :model do
         it '登録できない' do
           @user.save
           duplicate_user = User.new(name: 'unique_name',
-                                      email: @user.email,
-                                      password: 'password')
+                                    email: @user.email,
+                                    password: 'password')
           duplicate_user.valid?
           expect(duplicate_user.errors.details[:email][0][:error]).to eq :taken
         end
