@@ -7,7 +7,7 @@ RSpec.describe PostsController, type: :controller do
   let(:user) { create(:user) }
   let(:post_params) { attributes_for(:post) }
 
-  shared_example 'return 200 status code' do
+  shared_examples 'return 200 status code' do
     it { expect(response.status).to eq(200) }
   end
 
