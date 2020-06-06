@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_designated_comment, only: %i[edit show update destroy]
+  before_action :set_designated_comment, except: :create
+  before_action :authenticate_user!
 
   def create
     @comment = current_user.comments.build(comment_params)

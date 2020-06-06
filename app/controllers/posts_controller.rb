@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :set_designated_post, only: %i[edit show update destroy]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
 
   def index
     @posts = Post.includes(:user).paginate(page: params[:page], per_page: 20)

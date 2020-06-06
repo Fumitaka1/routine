@@ -12,7 +12,7 @@
       </div>
         <div class="post_menu">
           <ul>
-            <% if current_user == @post.user_id %>
+            <% if current_user == @post.user %>
               <li><%= link_to "投稿を削除", "", method: :delete, class: "button" %></li>
               <li><%= link_to "投稿を編集", edit_post_path(@post), class: "button" %></li>
             <% else %>

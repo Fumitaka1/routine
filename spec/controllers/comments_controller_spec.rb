@@ -9,7 +9,7 @@ RSpec.describe CommentsController, type: :controller do
   end
   before { login_user create(:user) }
 
-  shared_example 'return 200 status code' do
+  shared_examples 'return 200 status code' do
     it { expect(response.status).to eq(200) }
   end
 
