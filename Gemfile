@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'carrierwave'
+gem 'fog-aws'
+gem 'rmagick'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
