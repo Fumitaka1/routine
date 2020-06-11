@@ -1,0 +1,7 @@
+<div class="posts">
+  <% posts.each do |post| %>
+    <div class="post">
+      <%= render 'shared/post_info', post: post %>
+    </div>
+  <% end %>
+</div>

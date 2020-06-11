@@ -24,6 +24,7 @@ html{
 
 a{
   text-decoration: none;
+  color: #000;
 }
 
 li{
@@ -41,6 +42,7 @@ input{
 // header------------------------------
 header{
   border-bottom: solid 1px $red;
+  background-color: $orange;
 }
 
 .header-logo{
@@ -62,7 +64,14 @@ header{
 
 // main------------------------------
 .main{
-  min-height: 100vh;
+  min-height: 85vh;
+  background-color: whitesmoke;
+}
+
+.land{
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  background-color: white;
+  border-radius: 5px;
 }
 
 .wrapper{
@@ -76,9 +85,14 @@ header{
   align-items: center;
 }
 
+.top{
+  padding: 40px 0;
+}
+
 // footer------------------------------
 footer{
   border-top: solid 1px $red;
+  background-color: $orange;
 }
 
 .page-footer{
