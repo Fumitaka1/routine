@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :image, :remove_image)
   end
 
   def set_designated_post

@@ -1,21 +1,15 @@
-<div class="form-outer wrapper">
-  <div class="devise-form-inner">
-    <div class="devise-form">
+<div class="wrapper top">
+  <div class="devise-form-outer land">
+    <%= form_with model: @user, url: new_user_password_path, local: true, class: 'basic_form' do |f| %>
       <h2>パスワード再設定</h2>
-      
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-      
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-      
-        <div class="actions">
-          <%= f.submit "パスワード再設定メールを送信", class: "button" %>
-        </div>
-      <% end %>
-      
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+      <%= f.submit "パスワード再設定メールを送信", class: "button" %>
+    <% end %>
+    <div class="devise-form-menu">
       <%= render "devise/shared/links" %>
     </div>
   </div>

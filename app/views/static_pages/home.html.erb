@@ -1,24 +1,18 @@
-<div class="wrapper flex">
+
+<div class="wrapper flex top">
   <div class="home-outer">
-    <h2>話題の投稿</h2>
-    <div class="posts">
-      <% @posts.each do |post| %>
-        <div class="post">
-        <div class="post_info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="post_info_item">
-            <h2 class="post_title"><%= link_to post.title, post_path(post) %></h2>
-            <div class="post_info_nav">
-              <p class="user_name"><%= link_to post.user.name, user_path(post.user) %></p>
-              <p><%= post.updated_at.to_s(:datetime_jp) %>更新</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
+    <%= render 'shared/posts_index', posts: @posts  %>
   </div>
-  <div class="sidemenu">
+  <div class="l-side sidemenu">
+    <ul>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+      <li><a>menu item</a></li>
+    </ul>
+  </div>
+  <div class="r-side sidemenu">
     <ul>
       <li><a>menu item</a></li>
       <li><a>menu item</a></li>

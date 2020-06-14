@@ -1,16 +1,22 @@
 $red: #e82055;
 $orange: #ff7b24;
 
-.post{
-  padding: 15px;
+.posts{
   border: solid 1px $red;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: white;
 }
 
-.post_info{
-  display: flex;
-  align-items: center;
-  p{ padding-right: 10px;}
+.post{
+  border-radius: 5px;
+  border: solid 1px $red;
+  margin: 10px 0;
+  padding: 15px;
 }
+
+
 
 .post_info_item{
 
@@ -28,10 +34,39 @@ $orange: #ff7b24;
   li{ padding-left: 10px;}
 }
 
-.post_title, .post_contents{
+.post_contents{
   width: 100%;
 }
 
 .post_textarea{
   min-height: 50vh;
+}
+
+// posts_info
+.post_info{
+  display: flex;
+}
+
+.posted_user_icon{
+  margin-right: 10px;
+}
+
+// .posts_meta{
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.post_title a{
+  color: black;
+}
+
+.updated_time{
+  font-size: 14px;
+  color: darkgray;
+}
+
+.posts-nil{
+  h2{
+    text-align: center;
+  }
 }

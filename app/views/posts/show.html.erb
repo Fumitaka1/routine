@@ -1,60 +1,30 @@
-<div class="wrapper flex">
+<div class="wrapper flex top">
   <div class="home-outer">
-    <div class="post">
-      <div class="post_info">
-        <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-        <p class="user_name"><%= @post.user.name %></p>
-        <p><%= @post.updated_at.to_s(:datetime_jp) %>更新</p>
-      </div>
-      <h2 class="post_title"><%= @post.title %></h2>
+
+    <div class="post land">
+
+      <%= render 'shared/post_info', post: @post %>
       <div class="post_contents">
         <p><%= @post.content %></p>
-      </div>
-        <div class="post_menu">
-          <ul>
-            <% if current_user == @post.user %>
-              <li><%= link_to "投稿を削除", "", method: :delete, class: "button" %></li>
-              <li><%= link_to "投稿を編集", edit_post_path(@post), class: "button" %></li>
-            <% else %>
-              <%= render 'posts/bookmark_button' %>
-            <% end %>
-          </ul>
-        </div>
-    </div>
-
-    <div class="comments"><% @comments.each do |comment| %>
-      <div class="post">
-        <div class="post_info">
-          <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
-          <div class="post_info_item">
-            <div class="post_info_nav">
-              <p class="user_name"><%= link_to comment.user.name, user_path(comment.user) %></p>
-              <p><%= comment.updated_at.to_s(:datetime_jp) %>更新</p>
-            </div>
-          </div>
-        </div>
-        <div class="post_contents">
-          <p><%= comment.content %></p>
-        </div>
-      </div>
-    <% end %>
-    <%= will_paginate @comments, previous_label: '<', next_label: '>', inner_window: 1 %>
-      <div class="post_form_inner">
-        <%= form_with model: @comment, class: "basic_form" do |f| %>
-          <%= f.hidden_field :post_id %>
-          <h2>コメント投稿</h2>
-          <% if @comment.errors.any? %>
-            <% @comment.errors.full_messages.each do |message| %>
-              <p id="error_message"><%= message %></p>
-            <% end %>
-          <% end %>
-
-            <%= f.label :content, "内容" %>
-            <%= f.text_area :content, class: "comment_textarea" %>
-
-          <%= f.submit "投稿", class: "button" %>
+        <% unless @post.image.blank? %>
+          <img src=<%= @post.image %> alt="posts image">
         <% end %>
       </div>
+      <%= render 'shared/post_menu', post: @post %>
+    </div>
+
+    <div class="comments land">
+      <%= render partial: 'shared/comment_show', collection: @comments, as: :comment %>
+      <%= will_paginate @comments, previous_label: '<', next_label: '>', inner_window: 1 %>
+      <% if user_signed_in? %>
+        <div class="comment-form-outer">
+          <%= render 'shared/comment_form', comment: @comment %>
+        </div>
+      <% else %>
+        <div class="not_loged_in_comment">
+          <%= link_to 'ログインしてコメントを投稿する', new_user_session_path, class: 'button-border' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

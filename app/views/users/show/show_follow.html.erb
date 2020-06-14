@@ -1,4 +1,4 @@
-<div class="wrapper flex">
+<div class="wrapper flex top">
   <div class="home-outer">
     <%= will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
     <% @users.each do |user| %>
@@ -7,7 +7,7 @@
         <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
         <div class="post_info_item">
           <div class="post_info_nav">
-            <p class="user_name"><%= link_to user.name, user_path(user) %></p>
+            <p class="user_name"><%= link_to user.name, users_path(user) %></p>
           </div>
         </div>
       </div>

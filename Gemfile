@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'carrierwave'
+gem 'fog-aws'
+gem 'rmagick'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
@@ -17,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'capistrano-rails', group: :development
+gem "webpacker"
 
 group :development, :test do
   gem 'byebug', platform: :mri

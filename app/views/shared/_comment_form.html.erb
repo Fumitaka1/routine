@@ -1,0 +1,15 @@
+<div class="post_form_inner">
+  <%= form_with model: comment, class: "basic_form" do |f| %>
+    <%= f.hidden_field :post_id %>
+    <% if comment.errors.any? %>
+      <% comment.errors.full_messages.each do |message| %>
+        <p id="error_message"><%= message %></p>
+      <% end %>
+    <% end %>
+
+      <%= f.label :content, "コメント" %>
+      <%= f.text_area :content, class: "comment_textarea" %>
+
+    <%= f.submit "投稿", class: "button" %>
+  <% end %>
+</div>

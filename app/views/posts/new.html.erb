@@ -1,23 +1,25 @@
-<div class="form-outer wrapper">
-  <div class="post_form_inner">
-    <%= form_with model: @post, class: "basic_form" do |f| %>
-      <h2>新規投稿</h2>
+<div class="wrapper top">
+  <div class="home-outer land">
+    <div class="form-outer">
+      <%= form_with model: @post, class: "basic_form" do |f| %>
+        <h2>新規投稿</h2>
 
-      <% if @post.errors.any? %>
-        <% @post.errors.full_messages.each do |message| %>
-          <p id="error_message"><%= message %></p>
+        <% if @post.errors.any? %>
+          <% @post.errors.full_messages.each do |message| %>
+            <p id="error_message"><%= message %></p>
+          <% end %>
         <% end %>
+
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title %>
+
+        <%= f.label :content, "内容" %>
+        <%= f.text_area :content, class: "post_textarea" %>
+
+        <%= f.file_field :image%>
+
+        <%= f.submit "投稿", class: "button" %>
       <% end %>
-
-      <%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
-
-      <%= f.label :content, "内容" %>
-      <%= f.text_area :content, class: "post_textarea" %>
-
-      <%= f.file_field :image%>
-
-      <%= f.submit "投稿", class: "button" %>
-    <% end %>
+    </div>
   </div>
 </div>

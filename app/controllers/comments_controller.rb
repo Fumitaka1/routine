@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    redirect_to comments_path if @comment.destroy
+    redirect_back fallback_location: root_path if @comment.destroy
   end
 
   private

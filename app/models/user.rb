@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
+  mount_uploader :icon, IconUploader
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :name, :email, :password, presence: true
   validates :name, :email, uniqueness: true
