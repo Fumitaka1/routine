@@ -43,6 +43,8 @@ class IconUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{Time.now}-#{original_filename}"
+    if original_filename.present?
+      "#{Time.now}-#{original_filename}"
+    end
   end
 end

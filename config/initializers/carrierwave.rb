@@ -3,8 +3,8 @@ CarrierWave.configure do |config|
   config.fog_directory = ENV['AWS_S3_BUCKET']
   config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: 'AKIATBKNJGCF6IGUOEUP',
-      aws_secret_access_key: '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',
+      aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+      aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
       region: 'ap-northeast-1'
   }
 

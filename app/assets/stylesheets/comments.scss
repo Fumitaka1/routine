@@ -35,11 +35,18 @@ $orange: #ff7b24;
   margin-right: 10px;
 }
 
-.post_title a{
-  color: black;
-}
-
 .updated_time{
   font-size: 14px;
   color: darkgray;
+}
+
+.not_loged_in_comment{
+  margin: 20px auto;
+  display: flex;
+  a{
+    margin: 0 auto;}
+}
+
+.comment-form-outer{
+  padding-bottom: 10px;
 }

@@ -1,17 +1,30 @@
-<div class="form-outer wrapper top">
-  <div class="post_form_inner">
-    <%= form_with model: @post, class: "basic_form" do |f| %>
-      <h2>投稿編集</h2>
+<div class="wrapper top">
+  <div class="home-outer land">
+    <div class="form-outer">
+      <%= form_with model: @post, class: "basic_form" do |f| %>
+        <h2>投稿編集</h2>
+
+        <% if @post.errors.any? %>
+          <% @post.errors.full_messages.each do |message| %>
+            <p id="error_message"><%= message %></p>
+          <% end %>
+        <% end %>
 
         <%= f.label :title, "タイトル" %>
         <%= f.text_field :title %>
 
         <%= f.label :content, "内容" %>
-        <%= f.text_area :content %>
+        <%= f.text_area :content, class: "post_textarea" %>
+
+        <label>
+          <%= f.check_box :remove_image %>
+          画像を削除
+        </label>
 
         <%= f.file_field :image%>
 
-      <%= f.submit "投稿", class: "button" %>
-    <% end %>
+        <%= f.submit "投稿", class: "button" %>
+      <% end %>
+    </div>
   </div>
 </div>

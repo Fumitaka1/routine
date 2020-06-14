@@ -4,7 +4,7 @@
       <li><%= link_to "削除", "", method: :delete, class: "button" %></li>
       <li><%= link_to "編集", edit_post_path(post), class: "button-border" %></li>
     <% else %>
-      <%= render 'posts/bookmark_button' %>
+      <%= render 'posts/bookmark_button', post: post %>
     <% end %>
   </ul>
 </div>

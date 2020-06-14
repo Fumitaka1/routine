@@ -1,30 +1,22 @@
-<div class="form-outer wrapper">
-  <div class="devise-form-inner">
-    <div class="devise-form">
+<div class="wrapper top">
+  <div class="devise-form-outer land">
+    <%= form_with model: @user, url: edit_user_password_path, local: true, class: 'basic_form' do |f| %>
       <h2>パスワード変更</h2>
-      
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <%= f.hidden_field :reset_password_token %>
-      
-        <div class="field">
-          <%= f.label :password, "新しいパスワード" %><br />
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-          <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-        </div>
-      
-        <div class="field">
-          <%= f.label :password_confirmation, "パスワード確認" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-      
-        <div class="actions">
-          <%= f.submit "パスワード変更", class: "button" %>
-        </div>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <%= f.label :password, "新しいパスワード" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
-      
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+
+      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+      <%= f.submit "パスワード変更", class: "button" %>
+    <% end %>
+    <div class="devise-form-menu">
       <%= render "devise/shared/links" %>
     </div>
   </div>

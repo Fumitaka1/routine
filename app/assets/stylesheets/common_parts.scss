@@ -12,6 +12,9 @@ $orange: #ff7b24;
   flex-direction: column;
 }
 
+.btn-block{
+  text-align: center;
+}
 
 .button{
   border-radius: 8px;
@@ -27,26 +30,24 @@ $orange: #ff7b24;
   color: $red;
 }
 
-.form-outer{
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-}
-
 .post_form_inner{
   width: 100%;
   display: flex;
 }
 
+.form-outer{
+  padding: 15px
+}
+
 .basic_form{
   width: 100%;
-  border: solid $red 1px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
   h2{
     text-align: center;
+  }
+  label{
+    padding: 0 0 10px 10px;
   }
   input, textarea{
     box-shadow: inset 2px 2px 2px #ccc;
@@ -55,14 +56,21 @@ $orange: #ff7b24;
     border-radius: 5px;
   }.button{
     margin: 0;
-    width: 80px;
     margin: 0 auto;
-  }
-  label{
-    padding: 0 0 10px 10px;
+    box-shadow: none;
+    border: none;
   }
 }
 
 #error_message{
   color: red;
+}
+
+#error_explanation{
+  border: solid 1px red;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: #fdd;
+  color: red;
+  font-size: 15px;
 }

@@ -1,7 +1,11 @@
 <div class="post_info">
   <div class="posted_user_icon">
     <%= link_to(users_path(post.user)) do %>
-      <img src=<%= post.user.icon %> alt="user icon" class="user_icon">
+      <% if post.user.icon.blank? %>
+        <%= image_tag 'default_icon', class: 'user_icon' %>
+      <% else %>
+        <img src=<%= post.user.icon %> alt="user icon", class="user_icon" >
+      <% end %>
     <% end %>
   </div>
   <div class="posts_meta">
