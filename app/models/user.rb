@@ -7,12 +7,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable
 
   mount_uploader :icon, IconUploader
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
+  VALID_PASSWORD_REGEX = /\A[\w[\(\)\[\]\{\}\.\?\+\-\*\|\\\/][~!@#$%^&=:;<>,]]+\Z/.freeze
+
   validates :name, :email, :password, presence: true
+
   validates :name, :email, uniqueness: true
-  validates :password, length: { in: 6..128 }
+
+  validates :name, length: { maximum: 52 }
   validates :email, length: { maximum: 250 }
+  validates :password, length: { in: 6..128 }
+
   validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
