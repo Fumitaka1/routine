@@ -2,9 +2,11 @@
   <%= form_with model: comment, class: "basic_form" do |f| %>
     <%= f.hidden_field :post_id %>
     <% if comment.errors.any? %>
-      <% comment.errors.full_messages.each do |message| %>
-        <p id="error_message"><%= message %></p>
-      <% end %>
+      <div id="error_explanation">
+        <% comment.errors.full_messages.each do |message| %>
+        <p>・<%= message %></p>
+        <% end %>
+      </div>
     <% end %>
 
       <%= f.label :content, "コメント" %>

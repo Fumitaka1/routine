@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save!
+    if @comment.save
       redirect_to post_path(@comment.post)
     else
       # 保存に失敗した@commentとともに該当する@postのレンダリングを行う

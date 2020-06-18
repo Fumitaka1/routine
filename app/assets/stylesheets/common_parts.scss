@@ -62,9 +62,9 @@ $orange: #ff7b24;
   }
 }
 
-#error_message{
-  color: red;
-}
+// #error_message{
+//   color: red;
+// }
 
 #error_explanation{
   border: solid 1px red;
@@ -73,4 +73,27 @@ $orange: #ff7b24;
   background-color: #fdd;
   color: red;
   font-size: 15px;
+}
+
+.flash_message_container{
+  background-color: whitesmoke;
+}
+
+%flash_message{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert_message{
+  @extend %flash_message;
+  border: solid 1px lightpink;
+  background-color: pink;
+  color: darkred;
+}
+
+.notice_message{
+  @extend %flash_message;
+  border: solid 1px springgreen;
+  background-color: palegreen;
+  color: darkgreen;
 }

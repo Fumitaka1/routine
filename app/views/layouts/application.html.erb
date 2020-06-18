@@ -8,10 +8,12 @@
   </head>
   <body>
       <%= render 'shared/header' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="flash_message_container">
+        <%= render 'shared/notice_message', notice: notice if notice.present? %>
+        <%= render 'shared/alert_message', alert: alert if alert.present? %>
+      </div>
       <div class="main">
-        <%= yield %>
+      <%= yield %>
       </div>
       <%= render 'shared/footer' %>
   </body>
