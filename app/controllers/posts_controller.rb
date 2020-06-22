@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    flash[:notice] = '削除しました。'
     redirect_to posts_path if @post.destroy!
   end
 

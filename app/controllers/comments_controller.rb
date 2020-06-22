@@ -20,13 +20,14 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes(comment_params)
-      redirect_to posts_path
+      redirect_to post_path(@comment.post)
     else
       render 'edit'
     end
   end
 
   def destroy
+    flash[:notice] = '削除しました。'
     redirect_back fallback_location: root_path if @comment.destroy
   end
 
