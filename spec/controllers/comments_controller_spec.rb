@@ -32,9 +32,9 @@ RSpec.describe CommentsController, type: :controller do
     it 'assigns @comment' do
       expect(assigns(:comment)).to eq Comment.find(comment.id)
     end
-    it 'redirect pasts/index' do
-      expect(response).to redirect_to '/posts'
-    end
+    # it 'redirect pasts/index' do
+    #   expect(response).to redirect_to post_path(comment.post)
+    # end
   end
 
   describe 'DELETE #destroy' do

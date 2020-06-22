@@ -9,7 +9,7 @@ class User < ApplicationRecord
   mount_uploader :icon, IconUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
-  VALID_PASSWORD_REGEX = /\A[\w[\(\)\[\]\{\}\.\?\+\-\*\|\\\/][~!@#$%^&=:;<>,]]+\Z/.freeze
+  VALID_PASSWORD_REGEX = %r{\A[\w[\(\)\[\]\{\}\.\?\+\-\*\|\\/][~!@#$%^&=:;<>,]]+\Z}.freeze
 
   validates :name, :email, :password, presence: true
 
