@@ -2,6 +2,8 @@
 
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_designated_bookmark, only: %i[destroy]
+  before_action -> { check_permission(@bookmark.user) }, only: %i[destroy]
 
   def index
     @bookmarks = current_user.bookmarks.paginate(page: params[:page], per_page: 20)
@@ -14,7 +16,13 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    bookmark = Bookmark.find(params[:id]).destroy
-    redirect_to bookmark.post
+    @bookmark.destroy
+    redirect_to @bookmark.post
+  end
+
+  private
+
+  def set_designated_bookmark
+    @bookmark = Bookmark.find(params[:id])
   end
 end

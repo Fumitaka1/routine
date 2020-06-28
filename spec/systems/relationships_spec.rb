@@ -3,12 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'relationship', type: :system do
+  let(:user) { create(:user) }
   before do
     User.create!(name: 'sample_user',
                  email: 'sample_user@example.go',
                  password: 'password')
-
-    create(:user)
   end
   it 'フォローしてフォローを外す' do
     visit root_path
@@ -17,7 +16,7 @@ RSpec.describe 'relationship', type: :system do
     fill_in 'user[password]', with: 'password'
     click_button 'ログイン'
 
-    visit users_path(User.last)
+    visit user_path(user)
     expect(page).to have_button 'フォローする'
     click_on 'フォローする'
     expect(page).to have_button 'フォローを取り消す'

@@ -5,9 +5,9 @@
     </div>
   <% else %>
     <% posts.each do |post| %>
-    <div class="post">
-      <%= render 'shared/post_info', post: post %>
-    </div>
+      <div class="post">
+        <%= render 'shared/post_info', post: post %>
+      </div>
     <% end %>
   <% end %>
 </div>

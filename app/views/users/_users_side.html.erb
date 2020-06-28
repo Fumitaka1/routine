@@ -9,8 +9,8 @@
     <h1><%= @user.name %></h1>
 
     <ul>
-      <li><%= link_to "フォロワー: #{@user.followers.count}", followers_users_path(@user) %></li>
-      <li><%= link_to "フォロワー: #{@user.following.count}", following_users_path(@user) %></li>
+      <li><%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user) %></li>
+      <li><%= link_to "フォロー: #{@user.following.count}", following_user_path(@user) %></li>
     </ul>
 
     <% if user_signed_in? && current_user != @user %>

@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_designated_post, only: %i[edit show update destroy]
   before_action :authenticate_user!, only: %i[new edit create update destroy]
+  before_action :set_designated_post, only: %i[edit show update destroy]
+  before_action -> { check_permission(@post.user) }, only: %i[edit update destroy]
 
   def index
     @posts = Post.includes(:user).paginate(page: params[:page], per_page: 20)
@@ -30,15 +31,16 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to "/posts/#{@post.id}"
+      redirect_to post_path(@post)
     else
       render 'edit'
     end
   end
 
   def destroy
+    @post.destroy
     flash[:notice] = '削除しました。'
-    redirect_to posts_path if @post.destroy!
+    redirect_to posts_path
   end
 
   private

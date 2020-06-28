@@ -1,7 +1,7 @@
 <div class="post_menu">
   <ul class="flex">
-    <% if current_user == post.user %>
-      <li><%= link_to "削除", "",
+    <% if correct_user?(post.user) || current_user_is_admin? %>
+      <li><%= link_to "削除", post,
         method: :delete,
         data: { confirm: '本当に削除しますか？' },
         class: "button" %></li>
