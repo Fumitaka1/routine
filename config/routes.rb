@@ -7,15 +7,15 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
-
   }
 
-  get '/user/:id', to: 'users/show#show', as: :users
-  get '/user/:id/followers', to: 'users/show#followers', as: :followers_users
-  get '/user/:id/following', to: 'users/show#following', as: :following_users
-
+  resources :users,only: %i[destroy index show] do
+    member do
+      get :following, :followers, :bookmarks
+    end
+  end
   resources :posts
-  resources :comments
+  resources :comments, except: %i[new show index]
   resources :relationships, only: %i[create destroy]
-  resources :bookmarks, only: %i[create destroy index]
+  resources :bookmarks, only: %i[create destroy]
 end

@@ -93,3 +93,23 @@ $orange: #ff7b24;
   background-color: palegreen;
   color: darkgreen;
 }
+
+.items_index{
+  border: solid 1px $red;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: white;
+  .items_nil{
+    h2{ text-align: center; }
+  }
+  .index_item{
+    border-radius: 5px;
+    border: solid 1px $red;
+    margin: 10px 0;
+    padding: 15px;
+    .item_content{
+      display: flex;
+    }
+  }
+}

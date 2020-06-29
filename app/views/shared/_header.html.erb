@@ -7,12 +7,11 @@
     </div>
     <nav>
       <ul class="header-nav flex">
-        <li><%= link_to "探す", posts_path %></li>
+        <li><%= link_to "投稿一覧", posts_path %></li>
         <li><%= link_to "投稿", new_post_path %></li>
-        <li><%= link_to "トレンド", "" %></li>
+        <li><%= link_to "ユーザー一覧", users_path %></li>
         <% if user_signed_in? %>
-          
-          <li><%= link_to "#{current_user.name}", "/user/#{current_user.id}", class: "button" %></li>
+          <li><%= link_to "#{current_user.name}", current_user, class: "button" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path, class: "button" %></li>

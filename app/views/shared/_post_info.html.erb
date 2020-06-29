@@ -1,5 +1,5 @@
 <div class="post_info">
-  <div class="posted_user_icon">
+  <div class="post_user_icon">
     <%= link_to(users_path(post.user)) do %>
       <% if post.user.icon.blank? %>
         <%= image_tag 'default_icon', class: 'user_icon' %>
@@ -13,7 +13,7 @@
     <div class="posts_tags">
 
     </div>
-    <p class="posted_user_name"><%= link_to(post.user.name,users_path(post.user)) %></p>
+    <p class="posted_user_name"><%= link_to(post.user.name,user_path(post.user)) %></p>
     <p class="updated_time"><%= post.updated_at.to_s(:datetime_jp) %>更新</p>
   </div>
 </div>
