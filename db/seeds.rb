@@ -7,16 +7,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# cording: UTF-8
+# cording: UTF-8require 'i18n'
+I18n.locale = :ja
+require 'faker'
+Faker::Config.locale = :ja
+Faker::Internet.email # => "ransom_blanda@auer.name"
+
 User.create!(name: 'admin', email: 'admin@rotine.com', password: 'admins-password', admin: true)
-50.times do |no|
-  User.create!(name: "test_user_no.#{no + 1}",
-               email: "testno#{no + 1}@example.com",
+100.times do |no|
+  User.create!(name: "#{Faker::Name.name}@#{Faker::Job.position} #{no}",
+               email: Faker::Internet.email,
                password: 'a' * 8)
 end
 
-50.times do |no|
-  Post.create!(title: "test data no.#{no + 1}", content: 'it`s test data haha!', user_id: no + 1)
+100.times do |no|
+  Post.create!(title: Faker::Lorem.sentence, content: Faker::Lorem.sentence(word_count: 10), user_id: Random.rand(100)+1)
 end
 
 users = User.all

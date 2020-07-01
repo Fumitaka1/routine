@@ -2,12 +2,11 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_designated_post, only: %i[edit show update destroy]
+  before_action :set_post_find_by_id, only: %i[edit show update destroy]
+  before_action :set_posts_search_result, only: :index
   before_action -> { check_permission(@post.user) }, only: %i[edit update destroy]
 
-  def index
-    @posts = Post.includes(:user).paginate(page: params[:page], per_page: 20)
-  end
+  def index; end
 
   def create
     @post = current_user.posts.build(post_params)
@@ -49,7 +48,12 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :image, :remove_image)
   end
 
-  def set_designated_post
+  def set_post_find_by_id
     @post = Post.find(params[:id])
+  end
+
+  def set_posts_search_result
+    search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
+    @posts = search_result.paginate(page: params[:page], per_page: 20)
   end
 end

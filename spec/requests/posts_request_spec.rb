@@ -22,9 +22,20 @@ RSpec.describe 'posts', type: :request do
   end
 
   describe 'GET #index' do
-    it 'リクエストが成功すること' do
-      get posts_path
-      expect(response.status).to eq 200
+    context '検索ワードがある場合' do
+      it '一致した記事が表示されること' do
+        search_word = 'somesearchingword'
+        create(:post, title: search_word)
+        get "#{posts_url}?q=#{search_word}"
+        expect(response.status).to eq 200
+        expect(response.body).to include search_word
+      end
+    end
+    context '検索ワードがない場合' do
+      it 'リクエストが成功すること' do
+        get posts_path
+        expect(response.status).to eq 200
+      end
     end
   end
 
