@@ -6,7 +6,7 @@
       <%= render 'shared/post_info', post: @post %>
       <div class="post_contents">
         <p><%= @post.content %></p>
-        <% unless @post.image.blank? %>
+        <% unless @post.image.file.nil? %>
         <div class="post_image">
           <img src=<%= @post.image %> alt="posts image">
         </div>
