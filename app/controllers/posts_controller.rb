@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.remove_avatar! if @post.image.present?
     @post.destroy
     flash[:notice] = '削除しました。'
     redirect_to posts_path

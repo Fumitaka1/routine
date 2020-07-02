@@ -5,13 +5,9 @@ class UsersController < ApplicationController
 
 
   def destroy
-    byebug
-    current_user
-    if @user.destroy
-      flash[:notice] = '削除しました。'
-    else
-      flash[:alert] = '削除に失敗しました。'
-    end
+    @user.remove_avatar! if @user.icon.present?
+    @user.destroy
+    flash[:notice] = '削除しました。'
     redirect_to users_path
   end
 
