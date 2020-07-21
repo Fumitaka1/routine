@@ -13,7 +13,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    'user_icon'
+    "user/icon/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -45,6 +45,6 @@ class IconUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{Time.now}-#{original_filename}" if original_filename.present?
+    "#{original_filename}" if original_filename.present?
   end
 end

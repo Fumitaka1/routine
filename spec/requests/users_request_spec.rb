@@ -15,12 +15,18 @@ RSpec.describe 'Users', type: :request do
     end
   end
   describe 'DELETE #destroy' do
-    before { delete user_path(user) }
-    context 'ログインしていない場合' do
-      it 'ステータスコード302を返す' do
-        expect(response.status).to eq 302
+    context 'ログインしている場合' do
+      it 'userが削除されること' do
+        login user
+        expect do
+          delete user_path(user)
+        end.to change { User.count }.by(-1)
       end
+    end
+    context 'ログインしていない場合' do
       it 'サインインページにリダイレクトする' do
+        delete user_path(user)
+        expect(response.status).to eq 302
         expect(response).to redirect_to new_user_session_path
       end
     end
