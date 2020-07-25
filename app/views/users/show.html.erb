@@ -1,8 +1,24 @@
 <div class="wrapper flex top">
   <div class="home-outer">
     <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
-    <%= render 'shared/posts_index', posts: @posts  %>
+    <div class="tabs">
+      <input id="posts" type="radio" name="tab_item" checked>
+      <label class="tab_item" for="posts">投稿</label>
+      <input id="bookmarks" type="radio" name="tab_item">
+      <label class="tab_item" for="bookmarks">ブックマーク</label>
+
+      <div class="tab_content" id="posts_content">
+        <div class="tab_content_description">
+          <%= render 'shared/posts_index', posts: @posts  %>
+        </div>
+      </div>
+      <div class="tab_content" id="bookmarks_content">
+        <div class="tab_content_description">
+          <%= render 'shared/posts_index', posts: @bookmarks  %>
+        </div>
+      </div>
+    </div>
     <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
   </div>
-    <%= render 'users_side' %>
+    <%= render 'users/users_side' %>
   </div>

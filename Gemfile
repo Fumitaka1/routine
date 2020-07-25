@@ -39,3 +39,7 @@ group :development do
   gem 'squasher'
   gem 'web-console'
 end
+
+group :production, :staging do
+    gem 'unicorn'
+end

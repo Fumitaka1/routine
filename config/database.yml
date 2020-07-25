@@ -1,29 +1,23 @@
-development:
+default: &default
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: routine_development
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: toor
   password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
   host: localhost
+
+development:
+  <<: *default
+  database: routine_development
 
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *default
   database: routine_test
-  pool: 5
-  username: toor
-  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
-  host: localhost
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *default
+  username: admin
+  password: <%= Rails.application.credentials.dig(:mysql, :password) %>
+  host: routine-db.cbgbqblndf2s.ap-northeast-1.rds.amazonaws.com
   database: routine_production
-  pool: 5
-  username: toor
-  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
-  host: localhost

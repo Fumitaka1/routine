@@ -113,3 +113,62 @@ $orange: #ff7b24;
     }
   }
 }
+
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: white;
+  border: solid 1px $red;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  margin: 0 auto;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: gray;
+  line-height: 50px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  display: block;
+  float: left;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 20px 0;
+  clear: both;
+  overflow: hidden;
+  .posts{
+    border: none;
+    box-shadow: none;
+  }
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#posts:checked ~ #posts_content,
+#bookmarks:checked ~ #bookmarks_content{
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: $red;
+  color: white;
+}

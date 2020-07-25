@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = Post.where(user_id: @user.id).paginate(page: params[:page], per_page: 20)
+    @bookmarks = @user.bookmarked.paginate(page: params[:page], per_page: 20)
   end
 
   def following
