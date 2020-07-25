@@ -54,6 +54,7 @@ class PostsController < ApplicationController
   end
 
   def set_posts_search_result
+    params[:q].strip! unless params[:q].nil?
     search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
     @posts = search_result.paginate(page: params[:page], per_page: 20)
   end

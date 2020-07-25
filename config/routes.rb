@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users,only: %i[destroy index show] do
     member do
-      get :following, :followers, :bookmarks
+      get :following, :followers
     end
   end
   resources :posts
