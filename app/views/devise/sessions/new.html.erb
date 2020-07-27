@@ -2,6 +2,7 @@
   <div class="devise-form-outer land">
     <%= form_with model: @user, url: new_user_session_path, local: true, class: 'basic_form' do |f| %>
       <h2>ログイン</h2>
+      
       <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 
@@ -17,6 +18,7 @@
 
       <%= f.submit "ログイン", class: "button" %>
     <% end %>
+
     <div class="devise-form-menu">
       <%= render "devise/shared/links" %>
     </div>

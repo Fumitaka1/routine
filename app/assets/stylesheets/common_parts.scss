@@ -98,7 +98,7 @@ $orange: #ff7b24;
   border: solid 1px $red;
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 5px 15px 15px 15px;
   background-color: white;
   .items_nil{
     h2{ text-align: center; }
@@ -124,7 +124,6 @@ $orange: #ff7b24;
   margin: 0 auto;
 }
 
-/*タブのスタイル*/
 .tab_item {
   width: 50%;
   height: 40px;
@@ -143,12 +142,10 @@ $orange: #ff7b24;
   opacity: 0.75;
 }
 
-/*ラジオボタンを全て消す*/
 input[name="tab_item"] {
   display: none;
 }
 
-/*タブ切り替えの中身のスタイル*/
 .tab_content {
   display: none;
   padding: 20px 0;
@@ -160,15 +157,29 @@ input[name="tab_item"] {
   }
 }
 
-
-/*選択されているタブのコンテンツのみを表示*/
 #posts:checked ~ #posts_content,
 #bookmarks:checked ~ #bookmarks_content{
   display: block;
 }
 
-/*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
   background-color: $red;
   color: white;
+}
+
+.pagination{
+  font-size: 15px;
+  em, a, span{
+    border: solid 1px $red;
+    border-radius: 5px;
+    padding: 6px 10px;
+  }
+  .gap{
+    border: none;
+    border-radius: none;
+  }
+  .current{
+    background-color: $red;
+    color: white;
+  }
 }

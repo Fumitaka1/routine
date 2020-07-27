@@ -1,17 +1,13 @@
-<div class="post_form_inner">
-  <%= form_with model: comment, class: "basic_form" do |f| %>
-    <%= f.hidden_field :post_id %>
-    <% if comment.errors.any? %>
-      <div id="error_explanation">
-        <% comment.errors.full_messages.each do |message| %>
-        <p>・<%= message %></p>
-        <% end %>
-      </div>
+<div class="comment-form-outer">
+  <div class="post_form_inner">
+    <%= form_with(model: comment, class: "basic_form") do |f| %>
+      <%= f.hidden_field :post_id %>
+      <%= render('shared/error_messages', resource: comment) %>
+
+      <%= f.label(:content, "コメント") %>
+      <%= f.text_area(:content, class: "comment_textarea") %>
+
+      <%= f.submit("投稿", class: "button") %>
     <% end %>
-
-      <%= f.label :content, "コメント" %>
-      <%= f.text_area :content, class: "comment_textarea" %>
-
-    <%= f.submit "投稿", class: "button" %>
-  <% end %>
+  </div>
 </div>

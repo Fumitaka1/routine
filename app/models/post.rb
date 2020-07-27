@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
+  self.per_page = 15
+
   belongs_to :user
   has_many :comments
   has_many :bookmarks, dependent: :destroy

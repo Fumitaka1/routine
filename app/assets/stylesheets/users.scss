@@ -14,13 +14,14 @@ $orange: #ff7b24;
   flex-direction: column;
   text-align: center;
   padding: 15px;
+  .user_icon{
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+  }
   ul{
     display: flex;
   }
-}
-
-.user_prof_icon{
-  width: 300px;
 }
 
 .user_name a{

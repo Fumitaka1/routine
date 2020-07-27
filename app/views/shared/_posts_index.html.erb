@@ -6,8 +6,10 @@
   <% else %>
     <% posts.each do |post| %>
       <div class="post">
-        <%= render 'shared/post_info', post: post %>
+        <%= render('shared/post_info', post: post) %>
       </div>
     <% end %>
   <% end %>
+
+  <%= will_paginate(posts, previous_label: '<', next_label: '>', inner_window: 1) %>
 </div>

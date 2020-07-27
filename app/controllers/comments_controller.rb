@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def edit
     @post = @comment.post
-    @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
+    @comments = Comment.where(post_id: @post.id).paginate(page: params[:page])
   end
 
   def update
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@comment.post)
     else
       @post = @comment.post
-      @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
+      @comments = Comment.where(post_id: @post.id).paginate(page: params[:page])
       render 'edit'
     end
   end

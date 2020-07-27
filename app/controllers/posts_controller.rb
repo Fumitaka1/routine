@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new(post_id: @post.id)
-    @comments = Comment.where(post_id: @post.id).paginate(page: params[:page], per_page: 20)
+    @comments = Comment.where(post_id: @post.id).paginate(page: params[:page])
   end
 
   def update
@@ -45,17 +45,17 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :content, :image, :remove_image)
-  end
+    def post_params
+      params.require(:post).permit(:title, :content, :image, :remove_image)
+    end
 
-  def set_post_find_by_id
-    @post = Post.find(params[:id])
-  end
+    def set_post_find_by_id
+      @post = Post.find(params[:id])
+    end
 
-  def set_posts_search_result
-    params[:q].strip! unless params[:q].nil?
-    search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
-    @posts = search_result.paginate(page: params[:page], per_page: 20)
-  end
+    def set_posts_search_result
+      params[:q].strip! unless params[:q].nil?
+      search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
+      @posts = search_result.paginate(page: params[:page])
+    end
 end
