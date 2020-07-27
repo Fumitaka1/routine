@@ -5,10 +5,11 @@
     </div>
   <% else %>
     <% users.each do |user| %>
+      <% next if user.admin %>
       <div class="index_item">
-        <%= render 'shared/user_info', user: user %>
+        <%= render('shared/user_info', user: user) %>
       </div>
     <% end %>
-    <%= will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
+    <%= will_paginate(@users, previous_label: '<', next_label: '>', inner_window: 1) %>
   <% end %>
 </div>

@@ -75,20 +75,17 @@ $orange: #ff7b24;
   background-color: whitesmoke;
 }
 
-%flash_message{
+.alert_message{
   padding: 10px;
   border-radius: 5px;
-}
-
-.alert_message{
-  @extend %flash_message;
   border: solid 1px lightpink;
   background-color: pink;
   color: darkred;
 }
 
 .notice_message{
-  @extend %flash_message;
+  padding: 10px;
+  border-radius: 5px;
   border: solid 1px springgreen;
   background-color: palegreen;
   color: darkgreen;
