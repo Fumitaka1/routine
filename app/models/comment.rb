@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Comment < ApplicationRecord
+  self.per_page = 15
+
   belongs_to :post
   belongs_to :user
 

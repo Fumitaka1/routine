@@ -1,13 +1,14 @@
 <div class="post_menu">
   <ul class="flex">
     <% if correct_user?(post.user) || current_user_is_admin? %>
-      <li><%= link_to "削除", post,
+      <li><%= link_to("削除", post,
         method: :delete,
         data: { confirm: '本当に削除しますか？' },
-        class: "button" %></li>
-      <li><%= link_to "編集", edit_post_path(post), class: "button-border" %></li>
+        class: "button") %>
+      </li>
+      <li><%= link_to("編集", edit_post_path(post), class: "button-border") %></li>
     <% else %>
-      <%= render 'posts/bookmark_button', post: post %>
+      <%= render('posts/bookmark_button', post: post) %>
     <% end %>
   </ul>
 </div>

@@ -5,7 +5,7 @@ $orange: #ff7b24;
   border: solid 1px $red;
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 5px 15px 15px 15px;
   background-color: white;
 }
 
@@ -16,10 +16,8 @@ $orange: #ff7b24;
   padding: 15px;
 }
 
-
-
-.post_info_item{
-
+.posts_image{
+  margin: 10px 0;
 }
 
 .post_info_nav{

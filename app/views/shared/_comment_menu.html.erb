@@ -1,11 +1,12 @@
 <div class="post_menu">
   <ul class="flex">
-    <% if current_user == comment.user %>
-      <li><%= link_to "削除", "/comments/#{comment.id}",
+    <% if correct_user?(comment.user) || current_user_is_admin? %>
+      <li><%= link_to("削除", "/comments/#{comment.id}",
         method: :delete,
         data: { confirm: '本当に削除しますか？' },
-        class: "button" %></li>
-      <li><%= link_to "編集", edit_comment_path(comment), class: "button-border" %></li>
+        class: "button") %>
+      </li>
+      <li><%= link_to("編集", edit_comment_path(comment), class: "button-border") %></li>
     <% end %>
   </ul>
 </div>

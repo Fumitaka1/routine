@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_designated_user, only: %i[edit show update destroy]
+  before_action :set_designated_user, only: %i[edit show update destroy following followers]
   before_action :authenticate_user!, only: %i[destroy]
   before_action -> { check_permission(@user) }, only: %i[destroy]
 
@@ -12,12 +12,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.paginate(page: params[:page], per_page: 20)
+    @users = User.all.paginate(page: params[:page])
   end
 
   def show
-    @posts = Post.where(user_id: @user.id).paginate(page: params[:page], per_page: 20)
-    @bookmarks = @user.bookmarked.paginate(page: params[:page], per_page: 20)
+    @posts = Post.where(user_id: @user.id).paginate(page: params[:page])
+    @bookmarks = @user.bookmarked.paginate(page: params[:page])
   end
 
   def following

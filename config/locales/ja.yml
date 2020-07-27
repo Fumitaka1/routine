@@ -1,5 +1,7 @@
 ---
 ja:
+  will_paginate:
+    page_gap: …
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

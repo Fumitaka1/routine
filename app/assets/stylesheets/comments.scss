@@ -34,12 +34,11 @@ $orange: #ff7b24;
 }
 
 .comments_user_icon{
-  height: 65px;
-  border-radius: 5px;
-}
-
-.commented_user_icon{
   margin-right: 10px;
+  .user_icon{
+    height: 50px;
+    border-radius: 5px;
+  }
 }
 
 .updated_time{
