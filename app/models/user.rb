@@ -13,7 +13,6 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = %r{\A[\w[\(\)\[\]\{\}\.\?\+\-\*\|\\/][~!@#$%^&=:;<>,]]+\Z}.freeze
 
   validates :name, :email, :password, presence: true
-
   validates :name, :email, uniqueness: true
 
   validates :name, length: { maximum: 52 }
