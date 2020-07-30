@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'posts', type: :request do
@@ -79,17 +81,17 @@ RSpec.describe 'posts', type: :request do
     context 'ログインしている場合' do
       before { login user }
       context '投稿の所有者の場合' do
-        let(:own_article) { own_article = create(:post, user_id: user.id) }
+        let(:own_article) { create(:post, user_id: user.id) }
         context 'パラメータが正常な場合' do
           let(:valid_attributes) { attributes_for(:post, user_id: user.id, title: 'changed') }
           it '投稿詳細ぺージにリダイレクトすること' do
-            patch post_path(own_article), params: { post:  valid_attributes }
+            patch post_path(own_article), params: { post: valid_attributes }
             expect(response.status).to eq 302
             expect(response).to redirect_to post_path(own_article)
           end
           it 'タイトルが更新されていること' do
             expect do
-              patch post_path(own_article), params: { post:  valid_attributes }
+              patch post_path(own_article), params: { post: valid_attributes }
             end.to change { Post.find(own_article.id).title }.from(own_article.title).to('changed')
           end
         end
@@ -98,7 +100,7 @@ RSpec.describe 'posts', type: :request do
           it '投稿編集ぺージが表示されること' do
             patch post_path(own_article), params: { post: invalid_attributes }
             expect(response.status).to eq 200
-            expect(response.body).to include  '投稿編集'
+            expect(response.body).to include '投稿編集'
           end
           it 'タイトルが更新されていないこと' do
             expect do
@@ -136,7 +138,7 @@ RSpec.describe 'posts', type: :request do
       context 'パラメータが正常な場合' do
         it '投稿詳細ぺージにリダイレクトすること' do
           valid_attributes = attributes_for(:post)
-          post posts_path, params: { post:  valid_attributes }
+          post posts_path, params: { post: valid_attributes }
           expect(response.status).to eq 302
           expect(response).to redirect_to post_path(Post.last)
         end
@@ -150,7 +152,7 @@ RSpec.describe 'posts', type: :request do
       context 'パラメータが異常な場合' do
         let(:invalid_attributes) { attributes_for(:post, title: '') }
         it '新規投稿ページに遷移' do
-          post posts_path, params: { post:  invalid_attributes }
+          post posts_path, params: { post: invalid_attributes }
           expect(response.status).to eq 200
           expect(response.body).to include '新規投稿'
         end
@@ -163,7 +165,7 @@ RSpec.describe 'posts', type: :request do
     end
     context 'ログインしていない場合' do
       it 'ログインページにリダイレクトする' do
-        post posts_path, params: { post:  attributes_for(:post) }
+        post posts_path, params: { post: attributes_for(:post) }
         expect(response.status).to eq 302
         expect(response).to redirect_to new_user_session_path
       end
@@ -174,7 +176,7 @@ RSpec.describe 'posts', type: :request do
     context 'ログインしている場合' do
       before { login user }
       context '投稿の所有者の場合' do
-        let(:own_article) { own_article = create(:post, user_id: user.id) }
+        let(:own_article) { create(:post, user_id: user.id) }
         it '投稿一覧ぺージにリダイレクトされること' do
           delete post_path(own_article)
           expect(response).to redirect_to posts_path

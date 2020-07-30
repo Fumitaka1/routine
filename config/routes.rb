@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users,only: %i[destroy index show] do
+  resources :users, only: %i[destroy index show] do
     member do
       get :following, :followers
     end

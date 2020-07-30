@@ -26,7 +26,7 @@ RSpec.describe 'post', type: :system do
     expect(page).to have_content 'example title'
     expect(page).to have_selector '.post_contents'
     expect(page).to have_content 'example content'
-    expect(page).to have_selector '.post_image'
+    expect(page).to have_selector '.posts_image'
 
     click_on '編集'
     fill_in 'post[title]', with: 'changed title'

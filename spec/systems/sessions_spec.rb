@@ -8,9 +8,9 @@ RSpec.describe 'registration', type: :system do
                  email: 'sample_user@example.go',
                  password: 'password')
     User.create!(name: 'admin',
-                email: 'admin@example.go',
-             password: 'password',
-                admin: true)
+                 email: 'admin@example.go',
+                 password: 'password',
+                 admin: true)
   end
   it 'ノーマルユーザーでログインした後ログアウトする' do
     visit root_path

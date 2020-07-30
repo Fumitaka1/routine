@@ -24,7 +24,7 @@ User.create!(
 User.create!(
   name: 'サンプル太郎',
   email: 'sample@rotine.com',
-  password: 'sample-password',
+  password: 'sample-password'
 )
 
 100.times do |n|
@@ -35,11 +35,11 @@ User.create!(
   )
 end
 
-200.times do |n|
+200.times do |_n|
   Post.create!(
     title: Faker::Lorem.sentence,
     content: Faker::Lorem.sentence(word_count: 10),
-    user_id: Random.rand(100)+1
+    user_id: Random.rand(1..100)
   )
 end
 

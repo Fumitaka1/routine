@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 gem 'capistrano-rails', group: :development
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
@@ -15,7 +15,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '< 6.0.0'
 gem 'rmagick'
 gem 'sass-rails', '~> 5.0'
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
@@ -41,5 +41,5 @@ group :development do
 end
 
 group :production, :staging do
-    gem 'unicorn'
+  gem 'unicorn'
 end

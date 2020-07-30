@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
     @posts = Post.paginate(page: params[:page], per_page: 20)
   end
 
-  def contact;end
+  def contact; end
 
-  def help;end
+  def help; end
 end

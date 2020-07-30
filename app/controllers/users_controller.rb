@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_designated_user, only: %i[edit show update destroy following followers]
   before_action :authenticate_user!, only: %i[destroy]
   before_action -> { check_permission(@user) }, only: %i[destroy]
-
 
   def destroy
     @user.remove_avatar! if @user.icon.present?
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
   private
 
   def set_designated_user

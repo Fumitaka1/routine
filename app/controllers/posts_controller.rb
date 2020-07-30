@@ -45,17 +45,17 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, :content, :image, :remove_image)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content, :image, :remove_image)
+  end
 
-    def set_post_find_by_id
-      @post = Post.find(params[:id])
-    end
+  def set_post_find_by_id
+    @post = Post.find(params[:id])
+  end
 
-    def set_posts_search_result
-      params[:q].strip! unless params[:q].nil?
-      search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
-      @posts = search_result.paginate(page: params[:page])
-    end
+  def set_posts_search_result
+    params[:q]&.strip!
+    search_result = Post.where('title LIKE ?', "%#{params[:q]}%")
+    @posts = search_result.paginate(page: params[:page])
+  end
 end

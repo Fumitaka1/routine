@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def check_permission(user)
-    unless user == current_user || current_user.admin
-      flash[:alert] = '権限がありません'
-      redirect_to root_path
-    end
+    return if user == current_user || current_user.admin
+    
+    flash[:alert] = '権限がありません'
+    redirect_to root_path
   end
 
   protected
