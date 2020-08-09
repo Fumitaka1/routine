@@ -38,7 +38,9 @@ DBはRDS(mysql 5.7.30)です。
 - AWS
   - VPC
   - Route53
-  - EC2
+  - IAM
+  - ECS, ECR
+  - EC2, ELB, ACM
   - RDS
   - S3
 - OWASP ZAPによる脆弱性診断
