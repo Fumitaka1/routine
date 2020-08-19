@@ -19,13 +19,11 @@
       <%= f.submit("ログイン", class: "button") %>
     <% end %>
 
-    <div class="devise_form_menu">
-      <%= form_with(model: @user, url: new_user_session_path, local: true, class: 'basic_form') do |f| %>
-        <%= f.hidden_field(:email, :value => 'sample@rotine.com') %>
-        <%= f.hidden_field(:password, :value => 'sample-password') %>
-        <%= f.submit("簡単ログイン", class: "button") %>
-      <% end %>
-    </div>
+    <%= form_with(model: @user, url: new_user_session_path, local: true, class: 'devise_form_menu') do |f| %>
+      <%= f.hidden_field(:email, :value => 'sample@example.com') %>
+      <%= f.hidden_field(:password, :value => 'sample-password') %>
+      <%= f.submit("簡単ログイン", class: "button easy_login_button") %>
+    <% end %>
 
     <div class="devise_form_menu">
       <%= render("devise/shared/links") %>

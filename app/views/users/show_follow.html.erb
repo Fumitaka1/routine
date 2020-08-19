@@ -1,22 +1,7 @@
 <div class="wrapper flex top">
-  <div class="container_top">
-    <div class="posts">
-      <% @users.each do |user| %>
-        <div class="post">
-          <div class="post_info">
-            <%= link_to(users_path(user)) do %>
-            <%= render('shared/user_icon', user: user) %>
-            <% end %>
-            <div class="post_info_item">
-              <div class="post_info_nav">
-                <p class="user_name"><%= link_to(user.name, user_path(user)) %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
   <%= render('users/users_side', user: @user) %>
+
+  <div class="container_top">
+    <%= render 'shared/users_index', users: @users %>
+  </div>
 </div>

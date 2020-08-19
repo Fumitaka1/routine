@@ -23,7 +23,7 @@ User.create!(
 User.create!(
   name: 'admin',
   email: 'admin@example.com',
-  password: 'admins-password',
+  password: 'admin-password',
   admin: true
 )
 

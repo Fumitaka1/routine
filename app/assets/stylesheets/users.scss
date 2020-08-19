@@ -21,6 +21,8 @@ $orange: #ff7b24;
   }
   ul{
     display: flex;
+    margin: 0 auto;
+    li{ margin: 0 5px; }
   }
 }
 
@@ -29,7 +31,7 @@ $orange: #ff7b24;
 }
 
 .user_icon{
-  height: 80px;
+  height: 70px;
   border-radius: 5px;
 }
 

@@ -1,4 +1,6 @@
 <div class="wrapper flex top">
+  <%= render('users/users_side') %>
+
   <div class="container_top">
     <div class="tabs">
       <input id="posts" type="radio" name="tab_item" checked>
@@ -11,6 +13,7 @@
           <%= render('shared/posts_index', posts: @posts) %>
         </div>
       </div>
+
       <div class="tab_content" id="bookmarks_content">
         <div class="tab_content_description">
           <%= render('shared/posts_index', posts: @bookmarks) %>
@@ -19,5 +22,4 @@
     </div>
     <%= will_paginate(@posts, previous_label: '<', next_label: '>', inner_window: 1) %>
   </div>
-    <%= render('users/users_side') %>
-  </div>
+</div>
