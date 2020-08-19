@@ -14,7 +14,7 @@ RSpec.describe 'registration', type: :system do
     expect(page).to have_content 'アカウント登録が完了しました。'
 
     click_on 'sample_user'
-    expect(page).to have_content 'sample_userのマイページ'
+    expect(page).to have_content 'マイページ'
     click_on 'アカウント変更'
     expect(page).to have_content 'アカウント変更'
     fill_in 'user[name]', with: 'test_user'
