@@ -2,7 +2,7 @@
   <% if current_user_is_admin? %>
     <%= render 'users/user_controll', users: @users %>
   <% else %>
-    <div class="home-outer">
+    <div class="container_top">
       <%= render 'shared/users_index', users: @users %>
     </div>
   <% end %>

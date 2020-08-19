@@ -1,5 +1,5 @@
 <div class="wrapper flex top">
-  <div class="home-outer">
+  <div class="container_top">
     <div class="posts">
       <% @users.each do |user| %>
         <div class="post">
@@ -17,6 +17,6 @@
       <% end %>
     </div>
   </div>
-  
+
   <%= render('users/users_side', user: @user) %>
 </div>

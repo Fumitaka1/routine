@@ -4,7 +4,7 @@
       html: { method: :delete },
       remote: true) do |f| %>
 
-      <%= f.submit("フォローを取り消す", class: "button-border") %>
+      <%= f.submit("フォローを取り消す", class: "button_border") %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.active_relationships.build, remote: true) do |f| %>

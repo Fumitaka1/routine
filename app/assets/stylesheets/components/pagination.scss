@@ -1,0 +1,19 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.pagination{
+  font-size: 15px;
+  em, a, span{
+    border: solid 1px $red;
+    border-radius: 5px;
+    padding: 6px 10px;
+  }
+  .gap{
+    border: none;
+    border-radius: none;
+  }
+  .current{
+    background-color: $red;
+    color: white;
+  }
+}

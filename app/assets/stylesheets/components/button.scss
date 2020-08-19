@@ -1,0 +1,16 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.button{
+  border-radius: 8px;
+  background: $red;
+  color: white;
+  padding: 3px 8px;
+}
+
+.button_border{
+  @extend .button;
+  border: solid $red 1px;
+  background: rgba(0,0,0,0);
+  color: $red;
+}

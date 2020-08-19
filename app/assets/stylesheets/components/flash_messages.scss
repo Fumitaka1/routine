@@ -1,0 +1,26 @@
+#error_explanation{
+  border: solid 1px red;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: #fdd;
+  color: red;
+  font-size: 15px;
+}
+
+.flash_message_container{
+  background-color: whitesmoke;
+  .alert_message{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px lightpink;
+    background-color: pink;
+    color: darkred;
+  }
+  .notice_message{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px springgreen;
+    background-color: palegreen;
+    color: darkgreen;
+  }
+}

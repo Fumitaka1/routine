@@ -15,16 +15,16 @@ Faker::Config.locale = :ja
 Faker::Internet.email # => "ransom_blanda@auer.name"
 
 User.create!(
-  name: 'admin',
-  email: 'admin@rotine.com',
-  password: 'admins-password',
-  admin: true
+  name: 'サンプル太郎',
+  email: 'sample@example.com',
+  password: 'sample-password'
 )
 
 User.create!(
-  name: 'サンプル太郎',
-  email: 'sample@rotine.com',
-  password: 'sample-password'
+  name: 'admin',
+  email: 'admin@example.com',
+  password: 'admins-password',
+  admin: true
 )
 
 100.times do |n|

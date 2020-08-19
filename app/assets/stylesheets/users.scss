@@ -27,3 +27,14 @@ $orange: #ff7b24;
 .user_name a{
   color: black;
 }
+
+.user_icon{
+  height: 80px;
+  border-radius: 5px;
+}
+
+.user_data{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

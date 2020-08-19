@@ -1,5 +1,5 @@
 <div class="wrapper top">
-  <div class="devise-form-outer land">
+  <div class="devise_form_outer land">
     <%= form_with(model: @user, url: new_user_session_path, local: true, class: 'basic_form') do |f| %>
       <h2>ログイン</h2>
 
@@ -19,7 +19,7 @@
       <%= f.submit("ログイン", class: "button") %>
     <% end %>
 
-    <div class="devise-form-menu">
+    <div class="devise_form_menu">
       <%= form_with(model: @user, url: new_user_session_path, local: true, class: 'basic_form') do |f| %>
         <%= f.hidden_field(:email, :value => 'sample@rotine.com') %>
         <%= f.hidden_field(:password, :value => 'sample-password') %>
@@ -27,7 +27,7 @@
       <% end %>
     </div>
 
-    <div class="devise-form-menu">
+    <div class="devise_form_menu">
       <%= render("devise/shared/links") %>
     </div>
   </div>

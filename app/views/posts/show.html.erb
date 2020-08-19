@@ -1,5 +1,5 @@
 <div class="wrapper flex top">
-  <div class="home-outer">
+  <div class="container_top">
     <div class="post land">
       <%= render('shared/post_info', post: @post) %>
 
@@ -7,7 +7,7 @@
         <p><%= @post.content %></p>
         <%= image_tag(@post.image.url, alt: 'image', class: 'posts_image') if @post.image.present? %>
       </div>
-      
+
       <%= render('shared/post_menu', post: @post) %>
     </div>
 
@@ -19,7 +19,7 @@
         <%= render('shared/comment_form', comment: @comment) %>
       <% else %>
         <div class="not_loged_in_comment">
-          <%= link_to('ログインしてコメントを投稿する', new_user_session_path, class: 'button-border') %>
+          <%= link_to('ログインしてコメントを投稿する', new_user_session_path, class: 'button_border') %>
         </div>
       <% end %>
     </div>

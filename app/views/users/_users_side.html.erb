@@ -10,6 +10,6 @@
     </ul>
 
     <%= render('users/follow_button', user: @user) %>
-    <%= link_to("アカウント変更", edit_user_registration_path, class: "button-border") if correct_user?(@user) %>
+    <%= link_to("アカウント変更", edit_user_registration_path, class: "button_border") if correct_user?(@user) %>
   </div>
 </div>

@@ -6,7 +6,7 @@
         data: { confirm: '本当に削除しますか？' },
         class: "button") %>
       </li>
-      <li><%= link_to("編集", edit_post_path(post), class: "button-border") %></li>
+      <li><%= link_to("編集", edit_post_path(post), class: "button_border") %></li>
     <% else %>
       <%= render('posts/bookmark_button', post: post) %>
     <% end %>

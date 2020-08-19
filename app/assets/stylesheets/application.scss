@@ -31,36 +31,25 @@ li{
   list-style: none;
 }
 
-img{
-  max-width: 100vh;
-}
-
-input{
-  background-color: white;
-}
-
 // header------------------------------
 header{
-  border-bottom: solid 1px $red;
   background-color: $orange;
 }
 
-.header-logo{
-  height: 30px;
-}
 
-.page-header{
+.page_header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header-nav{
-  vertical-align: middle;
-  li{
-    padding-left: 20px;
+  .header_logo{
+    height: 30px;
+  }
+  .header_nav{
+    vertical-align: middle;
+    li{ padding-left: 20px; }
   }
 }
+
 
 // main------------------------------
 .main{
@@ -89,16 +78,17 @@ header{
   padding: 40px 0;
 }
 
+.container_top{
+  width: 55%;
+  margin: 0 auto;
+}
+
 // footer------------------------------
 footer{
-  border-top: solid 1px $red;
   background-color: $orange;
 }
 
-.page-footer{
+.page_footer{
   padding: 20px 10px;
-}
-
-.footer-logo{
-  height: 40px;
+  .footer_logo{ height: 40px; }
 }
