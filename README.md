@@ -19,10 +19,11 @@
 
 ## 開発環境
 ubuntu 18.04.4
+
 amazon linux(cloud9)
 
 ## 本番環境
-本番環境はAWSでECSを介したEC2(amazon linux 2)です。
+本番環境はAWSでECSを介したEC2(amazon linux 2)にdockerコンテナで実行しています。
 
 DBはRDS(mysql 5.7.30)です。
 
@@ -34,6 +35,7 @@ DBはRDS(mysql 5.7.30)です。
 
 ## 使用技術
 - Ruby 2.6.6
+- Docker
 - Rspec
 - Rails 5.2.4
 - mysql 5.30.7
