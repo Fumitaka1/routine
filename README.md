@@ -30,6 +30,7 @@ DBはRDS(mysql 5.7.30)です。
 記事の画像データはS3に格納しています。
 
 ### AWS構成図
+# 実務を経験した今ではおかしな構成だと思いますが、思い出としてそのまま残しています 2024-08-07
 ![デモ](https://github.com/Fumitaka1/routine_old/blob/images/my_env.jpg?raw=true)
 
 
